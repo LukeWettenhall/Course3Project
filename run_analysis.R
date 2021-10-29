@@ -53,6 +53,9 @@ key_measurement_data <- all_data[,grep("mean\\(|std\\(|Subject|Activity_label", 
 names(key_measurement_data)
 
 # Produce final summary table
-summary_table <- sapply(split(key_measurement_data[,-c(1,68)], 
-                             interaction(key_measurement_data$Subject, key_measurement_data$Activity_label))
-                       , colMeans)
+library(dplyr)
+summary_table <- key_measurement_data %>%
+  group_by(Subject, Activity_label) %>%
+  summarise(across(1:66, mean))
+
+write.table(summary_table, "./tidy_table_output.txt", row.names = F, quote = F)

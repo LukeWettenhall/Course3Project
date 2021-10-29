@@ -1,3 +1,11 @@
 # Course3Project
 
-This script merges data together, pulls out only the measurements of interest, and finally calculates the average metric for each subject and activity.
+This repoisitory contains the course project for Getting and Cleaning Data.
+
+The script run_analysis.R does these actions:
+ - Downloads the data from the website
+ - Unzips the files
+ - Reads in all the required train and test sets, including various labels required
+ - Combines the data
+ - Selects only the mean and std. deviation of each measurement
+ - Produces a final summary table that calculates the average metric value for each subject and activity
